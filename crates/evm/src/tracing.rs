@@ -216,9 +216,7 @@ mod tests {
 
     #[test]
     fn test_tracing_ctx_tx_index_and_block_env() {
-        let mut block_env = BlockEnv::default();
-        block_env.number = U256::from(42);
-        block_env.basefee = 0;
+        let block_env = BlockEnv { number: U256::from(42), ..Default::default() };
 
         let mut cfg_env = revm::context::CfgEnv::default();
         cfg_env.disable_nonce_check = true;
